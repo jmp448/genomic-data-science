@@ -15,7 +15,7 @@ def get_PCs(data, npcs):
     evals = [s**2 for s in svals]
     tot_var = sum(evals)
     pve = [evals[i]/tot_var for i in range(len(evals))]
-    return U[:, :npcs], pve
+    return U[:, :npcs], pve[:npcs]
 
 
 def get_loadings(data, pcs):
@@ -23,7 +23,7 @@ def get_loadings(data, pcs):
 
 
 def create_scree_plot(pve):
-    plt.plot(range(len(pve)), pve)
+    plt.scatter(range(len(pve)), pve)
     plt.xlabel('PCs')
     plt.ylabel('PVE')
     plt.savefig('scree.png')
@@ -31,12 +31,11 @@ def create_scree_plot(pve):
 
 def main():
     expmat = load_file(exp_file)
-    expmat = np.transpose(expmat)  # I want it to be samples x genes
-    U, pve = get_PCs(expmat, 20)
-    np.savetxt("expressionPCs_1_20.txt", U)
+    U, pve = get_PCs(expmat, 30)
+    np.savetxt("expressionPCs_1_30.txt", U)
     create_scree_plot(pve)
     loadings = get_loadings(expmat, U)
-    np.savetxt("loadings_1_20.txt", loadings)
+    np.savetxt("loadings_1_30.txt", loadings)
 
 
 if __name__=="__main__":
