@@ -11,7 +11,7 @@ def load_file(fname):
 
 
 def get_PCs(data, npcs):
-    U, svals, _ = svd(expmat)
+    U, svals, _ = svd(data)
     evals = [s**2 for s in svals]
     tot_var = sum(evals)
     pve = [evals[i]/tot_var for i in range(len(evals))]
