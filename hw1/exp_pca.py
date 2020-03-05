@@ -19,7 +19,7 @@ def get_PCs(data, npcs):
 
 
 def get_loadings(data, pcs):
-    return np.matmul(data, pcs)
+    return np.matmul(np.transpose(data), pcs)
 
 
 def create_scree_plot(pve):
