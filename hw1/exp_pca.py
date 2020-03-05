@@ -1,6 +1,6 @@
 import numpy as np
 
-exp_file = "exp.data.txt"
+exp_file = "data/exp.data.txt"
 
 
 def load_file(fname):
