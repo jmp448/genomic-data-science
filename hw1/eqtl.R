@@ -43,7 +43,7 @@ cisDist = 1e6;
 
 snps = SlicedData$new();
 snps$fileDelimiter = "\t";      # the TAB character
-snps$fileOmitCharacters = "NA"; # denote missing values;
+snps$fileOmitCharacters = "-"; # denote missing values;
 snps$fileSkipRows = 1;          # one row of column labels
 snps$fileSkipColumns = 1;       # one column of row labels
 snps$fileSliceSize = 2000;      # read file in slices of 2,000 rows
