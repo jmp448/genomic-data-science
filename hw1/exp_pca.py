@@ -14,6 +14,7 @@ def get_PCs(data, npcs):
     U, svals, _ = svd(data)
     evals = [s**2 for s in svals]
     tot_var = sum(evals)
+    evals = evals[:npcs]
     pve = [evals[i]/tot_var for i in range(len(evals))]
     return U[:, :npcs], pve[:npcs]
 
