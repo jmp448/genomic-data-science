@@ -7,7 +7,7 @@
 library(MatrixEQTL)
 
 ## Settings
-data.loc = "/work-zfs/abattle4/lab_data/GTEx_v8_eqtl_practice/matrix_eqtl"
+data.loc = "/work-zfs/abattle4/lab_data/GTEx_v8_eqtl_practice/matrix_eqtl/"
 
 # Linear model to use, modelANOVA, modelLINEAR, or modelLINEAR_CROSS
 useModel = modelLINEAR; # modelANOVA, modelLINEAR, or modelLINEAR_CROSS
