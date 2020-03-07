@@ -5,4 +5,4 @@
 
 module load R
 
-Rsource eqtl.R
+Rscript eqtl.R
