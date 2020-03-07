@@ -24,8 +24,8 @@ gene_location_file_name = paste0(data.loc, "Whole_Blood.v8.gene_location.txt");
 covariates_file_name = "cov1.txt";
 
 # Output file name
-output_file_name_cis = tempfile();
-output_file_name_tra = tempfile();
+output_file_name_cis = tempfile("q3.cis.eqtl.txt");
+output_file_name_tra = tempfile("q3.trans.eqtl.txt");
 
 # Only associations significant at this level will be saved
 pvOutputThreshold_cis = 2e-2;
