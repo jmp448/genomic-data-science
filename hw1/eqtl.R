@@ -21,7 +21,7 @@ expression_file_name = paste0(data.loc, "Whole_Blood.v8.normalized_expression.tx
 gene_location_file_name = paste0(data.loc, "Whole_Blood.v8.gene_location.txt");
 
 # Covariates file name
-covariates_file_name = "cov1.txt";
+covariates_file_name = "data/cov1.txt";
 
 # Output file name
 output_file_name_cis = tempfile("q3.cis.eqtl.txt");
