@@ -24,11 +24,11 @@ gene_location_file_name = paste0(data.loc, "Whole_Blood.v8.gene_location.txt");
 covariates_file_name = "data/cov1.txt";
 
 # Output file name
-output_file_name_cis = tempfile("q3.cis.eqtl.txt");
-output_file_name_tra = tempfile("q3.trans.eqtl.txt");
+output_file_name_cis = "q3.cis.eqtl.txt";
+output_file_name_tra = tempfile();
 
 # Only associations significant at this level will be saved
-pvOutputThreshold_cis = 2e-5;
+pvOutputThreshold_cis = 1e-2;
 pvOutputThreshold_tra = 0;
 
 # Error covariance matrix
@@ -93,7 +93,7 @@ me = Matrix_eQTL_main(
   noFDRsaveMemory = FALSE);
 
 unlink(output_file_name_tra);
-unlink(output_file_name_cis);
+#unlink(output_file_name_cis);
 
 ## Results:
 
