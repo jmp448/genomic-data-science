@@ -1,8 +1,8 @@
 import numpy as np
 
 snpfile = "/work-zfs/abattle4/lab_data/GTEx_v8_eqtl_practice/matrix_eqtl/Whole_Blood.v8.snp_location.chr10.txt"
-snplocs = np.loadtxt(snpfile, dtype=int, skiprows=1)
-snplocs = np.array(snplocs[:,2])
+snplocs = np.loadtxt(snpfile, dtype=int, skiprows=1, usecols=1)
+snplocs = np.array(snplocs)
 
 genefile = "/work/josh/genomic-data-science/hw1/data/chr10genelocs.txt"
 genelocs = np.loadtxt(snpfile, dtype=int, skiprows=1, usecols=(2, 3))
