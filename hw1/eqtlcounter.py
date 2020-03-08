@@ -6,7 +6,7 @@ def bh_all_combos():
     pvals = np.sort(pvals)
     ranks = range(1, len(pvals)+1)
     fdr = 0.05
-    nSNPcands = 3661543
+    nSNPcands = 3663907
     bh = [(r/nSNPcands)*fdr for r in ranks]
     assert(len(pvals) == len(bh))
     for i in range(len(bh)):
