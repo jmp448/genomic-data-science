@@ -4,6 +4,7 @@
 #SBATCH --output=q3.out
 #SBATCH --error=q3.err
 #SBATCH --mem=25G
+#SBATCH --partition=shared
 #SBATCH --mail-user=jpopp4@jhu.edu
 
 module load R
