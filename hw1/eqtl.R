@@ -28,8 +28,8 @@ output_file_name_cis = tempfile("q3.cis.eqtl.txt");
 output_file_name_tra = tempfile("q3.trans.eqtl.txt");
 
 # Only associations significant at this level will be saved
-pvOutputThreshold_cis = 2e-2;
-pvOutputThreshold_tra = 1e-2;
+pvOutputThreshold_cis = 2e-5;
+pvOutputThreshold_tra = 0;
 
 # Error covariance matrix
 # Set to numeric() for identity.
@@ -100,8 +100,6 @@ unlink(output_file_name_cis);
 cat('Analysis done in: ', me$time.in.sec, ' seconds', '\n');
 cat('Detected local eQTLs:', '\n');
 show(me$cis$eqtls)
-cat('Detected distant eQTLs:', '\n');
-show(me$trans$eqtls)
 
 ## Plot the Q-Q plot of local and distant p-values
 png('cov1qq.png')
