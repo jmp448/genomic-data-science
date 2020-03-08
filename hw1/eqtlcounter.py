@@ -7,7 +7,7 @@ def bh_all_combos():
     ranks = range(1, len(pvals)+1)
     fdr = 0.05
     nSNPcands = 3661543
-    bh = (ranks/nSNPcands)*fdr
+    bh = [(r/nSNPcands)*fdr for r in ranks]
     assert(len(pvals) == len(bh))
     for i in range(len(bh)):
         if pvals[len(bh)-1-i] < bh[len(bh)-1-i]:

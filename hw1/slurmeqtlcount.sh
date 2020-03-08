@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=countSNPcands
+#SBATCH --job-name=countQTL1
 #SBATCH --time=0:20:0
-#SBATCH --output=slurm_output/SNPcount.out
-#SBATCH --error=slurm_output/SNPcount.err
+#SBATCH --output=slurm_output/QTLcount1.out
+#SBATCH --error=slurm_output/QTLcount1.err
 #SBATCH --mem=5G
 #SBATCH --mail-user=jpopp4@jhu.edu
 
