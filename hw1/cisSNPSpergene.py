@@ -19,14 +19,17 @@ generanges[:, 1] = [i if i<=chr10len else chr10len for i in genelocs[:,1]]
 snpcount = np.zeros(len(generanges), dtype=int)
 startSNP = 0
 for i in range(len(generanges)):
+    print("STARTSNP is %d" % startSNP)
     g = generanges[i]
+    print("Gene %d runs from %d to %d " % (i, g[0], g[1]))
     for j in range(len(snplocs[startSNP:])):
         snploc = snplocs[j]
         if snploc < g[0]:
             startSNP = j
         elif g[0] <= snploc < g[1]:
             snpcount[i] += 1
+            print("FOUND SNP FOR GENE %d")
         else:
             break
 
-np.savetxt("snpcounts.chr10.txt", snpcount)
+np.savetxt("snpcounts.chr10.txt", snpcount, fmt="%d")
