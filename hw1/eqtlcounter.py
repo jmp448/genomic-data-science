@@ -11,7 +11,7 @@ def bh_all_combos():
     assert(len(pvals) == len(bh))
     for i in range(len(bh)):
         if pvals[len(bh)-1-i] < bh[len(bh)-1-i]:
-            print("%d eQTL's identified" % len(bh)-1-i)
+            print("%d eQTL's identified" % str(len(bh)-1-i))
 
 
 def main():
