@@ -5,7 +5,7 @@ snplocs = np.loadtxt(snpfile, dtype=int, skiprows=1, usecols=2)
 snplocs = np.array(snplocs)
 
 genefile = "/work/josh/genomic-data-science/hw1/data/chr10genelocs.txt"
-genelocs = np.loadtxt(snpfile, dtype=int, skiprows=1, usecols=(2,3))
+genelocs = np.loadtxt(genefile, dtype=int, skiprows=1, usecols=(2,3))
 genelocs = np.array(genelocs)
 
 generanges = np.zeros(genelocs.shape)
