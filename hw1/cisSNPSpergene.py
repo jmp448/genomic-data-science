@@ -4,7 +4,7 @@ snpfile = "/work-zfs/abattle4/lab_data/GTEx_v8_eqtl_practice/matrix_eqtl/Whole_B
 snplocs = np.loadtxt(snpfile, dtype=int, skiprows=1, usecols=2)
 snplocs = np.array(snplocs)
 
-genefile = "/work/josh/genomic-data-science/hw1/data/chr10genelocs.txt"
+genefile = "/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/data/chr10genelocs.txt"
 genelocs = np.loadtxt(genefile, dtype=int, skiprows=1, usecols=(2,3))
 genelocs = np.array(genelocs)
 
