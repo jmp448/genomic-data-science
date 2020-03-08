@@ -20,7 +20,7 @@ snpcount = np.zeros(len(generanges), dtype=int)
 startSNP = 0
 for i in range(len(generanges)):
     g = generanges[i]
-    for j in range(len(snplocs[startSNP:])):
+    for j in range(startSNP, len(snplocs)):
         snploc = snplocs[j]
         if snploc < g[0]:
             startSNP = j
