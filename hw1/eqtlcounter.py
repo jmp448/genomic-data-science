@@ -9,14 +9,13 @@ def bh_all_combos():
     nSNPcands = 3661543
     bh = [(r/nSNPcands)*fdr for r in ranks]
     assert(len(pvals) == len(bh))
-    found=False
     for i in range(len(bh)):
         pos=len(bh)-1-i
         if pvals[pos] < bh[pos]:
             print("%d eQTL's identified" % (pos+1))
             found=True
-    if not found:
-        print("0 eQTL's identified")
+            return
+    print("0 eQTL's identified")
 
 
 
