@@ -1,4 +1,3 @@
-from matplotlib.pyplot import hist
 import numpy as np
 
 snpfile = "/work-zfs/abattle4/lab_data/GTEx_v8_eqtl_practice/matrix_eqtl/Whole_Blood.v8.snp_location.chr10.txt"
