@@ -8,6 +8,7 @@
 #SBATCH --error=slurm_output/q4.err
 #SBATCH --mem-per-node=5G
 #SBATCH --mail-user=jpopp4@jhu.edu
+#SBATCH --partition=parallel
 
 module load R
 
