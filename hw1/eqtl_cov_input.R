@@ -7,7 +7,7 @@
 library(MatrixEQTL)
 
 args <- commandArgs()
-cov <- args[[1]]
+cov <- args[[6]]
 
 ## Settings
 data.loc = "/work-zfs/abattle4/lab_data/GTEx_v8_eqtl_practice/matrix_eqtl/"
