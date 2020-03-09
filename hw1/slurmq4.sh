@@ -10,7 +10,7 @@
 module load R
 
 srun Rscript eqtl_cov_input.R "cov1" 0
-srun Rscript eqtl_cov_input.R "cov2.tabbed" 1
+srun Rscript eqtl_cov_input.R "cov2" 1
 srun Rscript eqtl_cov_input.R "cov3" 2
 srun Rscript eqtl_cov_input.R "cov4" 3
 srun Rscript eqtl_cov_input.R "cov5" 4
