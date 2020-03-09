@@ -27,7 +27,7 @@ gene_location_file_name = paste0(data.loc, "Whole_Blood.v8.gene_location.txt");
 covariates_file_name = paste0("data/", cov, ".txt");
 
 # Output file name
-output_file_name_cis = paste0("cis.eqtl.", cov, ".txt");
+output_file_name_cis = paste0("matrixeqtl/cis.eqtl.", cov, ".txt");
 output_file_name_tra = tempfile();
 
 # Only associations significant at this level will be saved
@@ -105,6 +105,6 @@ cat('Detected local eQTLs:', '\n');
 show(me$cis$eqtls)
 
 ## Plot the Q-Q plot of local and distant p-values
-png(paste0(cov, 'qq.png'))
+png(paste0('plots/', cov, 'qq.png'))
 plot(me)
 dev.off()
