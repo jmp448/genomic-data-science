@@ -93,7 +93,7 @@ me = Matrix_eQTL_main(
   cisDist = cisDist,
   pvalue.hist = "qqplot",
   min.pv.by.genesnp = FALSE,
-  noFDRsaveMemory = FALSE);
+  noFDRsaveMemory = TRUE);
 
 unlink(output_file_name_tra);
 #unlink(output_file_name_cis);
