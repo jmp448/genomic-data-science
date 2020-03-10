@@ -1,10 +1,16 @@
 import numpy as np
 
 def bh_all_combos():
-    snpfile = "/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/q3.cis.eqtl.txt"
-    pvals = np.array(np.loadtxt(snpfile, skiprows=1, usecols=4))
+    qtlfile = "/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/q3.cis.eqtl.txt"
+    pvals = np.array(np.loadtxt(qtlfile, skiprows=1, usecols=4))
     pvals = np.sort(pvals)
-    ranks = range(1, len(pvals)+1)
+    ranks = np.zeros(len(pvals), dtype=int)
+    ranks[0] = 1
+    for i in range(1, len(pvals)):
+        if pvals[i] = pvals[i-1]:
+            ranks[i] = ranks[i-1]
+        else:
+            ranks[i] = ranks[i-1]+1
     fdr = 0.05
     nSNPcands = 3663907
     bh = [(r/nSNPcands)*fdr for r in ranks]
@@ -17,10 +23,21 @@ def bh_all_combos():
             return
     print("0 eQTL's identified")
 
+def gene_to_ncands():
+    gene_names =
+    snp_counts = np.array(np.loadtxt(qtlfile, skiprows=1, usecols=4))
+    return dict(gene_names, snp_counts)
+
+def bonferroni_bh(gene2count):
+    qtlfile = "/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/q3.cis.eqtl.txt"
+    pvals = np.sort(pvals)
+
 
 
 def main():
-    bh_all_combos()
+    # bh_all_combos()
+    gene2count = gene_to_ncands()
+    bonferroni_bh(gene2count)
 
 
 if __name__=="__main__":
