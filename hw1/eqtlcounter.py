@@ -36,7 +36,7 @@ def get_SNPs_per_gene():
     f.close()
 
     # get list of snp counts per gene
-    qtlfile="/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/data/snpcounts.chr10.txt"
+    qtlfile="/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/snpcounts.chr10.txt"
     snp_counts = np.array(np.loadtxt(qtlfile), dtype=int)
 
     gene2snpcount = dict(zip(genes, snp_counts))
