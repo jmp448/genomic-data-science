@@ -55,7 +55,7 @@ def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05):
     ranks[0] = 1
     increment = 1
     for i in range(1, len(pvals)):
-        if pvals[i] = pvals[i-1]:
+        if pvals[i] == pvals[i-1]:
             ranks[i] = ranks[i-1]
             increment += 1
         else:
