@@ -43,7 +43,7 @@ def get_SNPs_per_gene():
     return gene2snpcount
 
 
-def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05):
+def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05, tied_rankings=False):
     """
     Input: pvals (ndarray of floats), outfile (str), ntest (int), [fdr (float)]
     Output: file located at outfile will contain one line saying how many eqtl's are
@@ -51,26 +51,29 @@ def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05):
             rate
     """
     pvals = np.sort(pvals)
-    ranks = np.zeros(len(pvals), dtype=int)
-    ranks[0] = 1
-    increment = 1
-    for i in range(1, len(pvals)):
-        if pvals[i] == pvals[i-1]:
-            ranks[i] = ranks[i-1]
-            increment += 1
-        else:
-            ranks[i] = ranks[i-1]+increment
-            increment = 1
+    if tied_rankings:
+        ranks = np.zeros(len(pvals), dtype=int)
+        ranks[0] = 1
+        increment = 1
+        for i in range(1, len(pvals)):
+            if pvals[i] == pvals[i-1]:
+                ranks[i] = ranks[i-1]
+                increment += 1
+            else:
+                ranks[i] = ranks[i-1]+increment
+                increment = 1
+    else:
+        ranks = range(len(pvals))
     bh = [(r/ntest)*fdr for r in ranks]
     assert(len(pvals) == len(bh))
     fout = open(outfile, "w+")
     for i in range(len(bh)):
         pos=len(bh)-1-i
         if pvals[pos] < bh[pos]:
-            fout.write("%d eQTL's identified" % (pos+1))
+            fout.write("%d eQTL's identified\n" % (pos+1))
             found=True
             return
-    print("0 eQTL's identified")
+    print("0 eQTL's identified\n")
     fout.close()
 
 
