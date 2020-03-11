@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "eqtlcounter.py", line 112, in <module>
+    main()
+  File "eqtlcounter.py", line 104, in main
+    bh_gene_level("cov1")
+  File "eqtlcounter.py", line 84, in bh_gene_level
+    gene2count = get_SNPs_per_gene()
+  File "eqtlcounter.py", line 41, in get_SNPs_per_gene
+    snp_counts = np.array(snpcounts, dtype=int)
+ValueError: invalid literal for int() with base 10: 'chr10'
