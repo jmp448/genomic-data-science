@@ -24,7 +24,7 @@ for i in range(len(generanges)):
         snploc = snplocs[j]
         if snploc < g[0]:
             startSNP = j
-        elif g[0] <= snploc < g[1]:
+        elif g[0] <= snploc <= g[1]:
             snpcount[i] += 1
         else:
             break

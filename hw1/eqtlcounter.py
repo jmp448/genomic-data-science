@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+
 
 def get_qtl_data(cov):
     """
@@ -71,10 +73,12 @@ def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05, tied_rankings=Fal
         pos=len(bh)-1-i
         if pvals[pos] < bh[pos]:
             fout.write("%d eQTL's identified\n" % (pos+1))
+            fout.close()
             found=True
-            return
+            return (pos+1)
     print("0 eQTL's identified\n")
     fout.close()
+    return 0
 
 
 def bh_all_combos():
@@ -101,13 +105,19 @@ def bh_gene_level(cov):
     count_bh_significant_snps(pvals, outfile, 3663907)
 
 
+def plot_egenes_vs_covs(covs, egenes):
+    plt.plot(covs, egenes)
+
+
 def main():
-    bh_all_combos()
-    bh_gene_level("cov1")
-    bh_gene_level("cov2")
-    bh_gene_level("cov3")
-    bh_gene_level("cov4")
-    bh_gene_level("cov5")
+    all_combined = bh_all_combos()
+    cov1genes = bh_gene_level("cov1")
+    cov2genes = bh_gene_level("cov2")
+    cov3genes = bh_gene_level("cov3")
+    cov4genes = bh_gene_level("cov4")
+    cov5genes = bh_gene_level("cov5")
+    plot_egenes_vs_covs([0, 5, 10, 20, 30],
+                        [cov1genes, cov2genes, cov3genes, cov4genes, cov5genes])
 
 
 if __name__=="__main__":
