@@ -86,9 +86,9 @@ def bh_gene_level(cov):
         pvals[i] *= gene2count[genes[i]]  # bonferroni adjust
     # take top pval for each gene
     ordered = np.argsort(pvals)
-    pvals = pvals[ordered]
-    genes = genes[ordered]
-    snps = snps[ordered]
+    pvals = [pvals[o] for o in ordered]
+    genes = [genes[o] for o in ordered]
+    snps = [snps[o] for o in ordered]
 
     genes, uniq = np.unique(np.array(genes), return_index=True)
     pvals = [pvals[u] for u in uniq]
