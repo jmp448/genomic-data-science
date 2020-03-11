@@ -16,7 +16,7 @@ def get_qtl_data(cov):
         snps.append(l.split('\t')[0])
         genes.append(l.split('\t')[1])
     f.close()
-    pvals = np.array(np.loadtxt(qtlfile, skiprows=1, usecols=4))
+    pvals = np.array(np.loadtxt(fname, skiprows=1, usecols=4))
     assert(len(snps) == len(genes))
     assert(len(genes) == len(pvals))
     return snps, genes, pvals
@@ -39,7 +39,7 @@ def get_SNPs_per_gene():
     qtlfile="/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/data/chr10genelocs.txt"
     snp_counts = np.array(np.loadtxt(qtlfile), dtype=int)
 
-    gene2snpcount = dict(zip(gene_names, snp_counts))
+    gene2snpcount = dict(zip(genes, snp_counts))
     return gene2snpcount
 
 
@@ -63,7 +63,7 @@ def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05):
             increment = 1
     bh = [(r/ntest)*fdr for r in ranks]
     assert(len(pvals) == len(bh))
-    fout = open(outfile, "w+"")
+    fout = open(outfile, "w+")
     for i in range(len(bh)):
         pos=len(bh)-1-i
         if pvals[pos] < bh[pos]:
