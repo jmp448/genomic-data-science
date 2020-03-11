@@ -31,14 +31,13 @@ def get_SNPs_per_gene():
     f = open("/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/data/chr10genelocs.txt", 'r')
     lines=f.readlines()
     genes=[]
-    snpcounts = []
     for l in lines:
         genes.append(l.split('\t')[0])
-        snpcounts.append(l.split('\t')[1])
     f.close()
 
     # get list of snp counts per gene
-    snp_counts = np.array(snpcounts, dtype=int)
+    qtlfile="/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/data/snpcounts.chr10.txt"
+    snp_counts = np.array(np.loadtxt(qtlfile), dtype=int)
 
     gene2snpcount = dict(zip(genes, snp_counts))
     return gene2snpcount
