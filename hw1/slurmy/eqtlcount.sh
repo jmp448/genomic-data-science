@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=countQTL1
-#SBATCH --time=0:20:0
+#SBATCH --time=0:45:0
 #SBATCH --output=slurm_output/QTLcount1.out
 #SBATCH --error=slurm_output/QTLcount1.err
 #SBATCH --mem=5G
