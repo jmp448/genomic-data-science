@@ -31,7 +31,7 @@ output_file_name_cis = paste0("matrixeqtl/cis.eqtl.", cov, ".txt");
 output_file_name_tra = tempfile();
 
 # Only associations significant at this level will be saved
-pvOutputThreshold_cis = 1e-2;
+pvOutputThreshold_cis = 1;
 pvOutputThreshold_tra = 0;
 
 # Error covariance matrix

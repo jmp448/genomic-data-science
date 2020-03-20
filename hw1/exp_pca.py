@@ -24,7 +24,7 @@ def get_loadings(data, pcs):
 
 
 def create_scree_plot(pve):
-    plt.scatter(range(len(pve)), pve)
+    plt.scatter(range(len(pve)), pve*100)
     plt.xlabel('PCs')
     plt.ylabel('PVE')
     plt.savefig('scree.png')
