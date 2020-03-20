@@ -26,8 +26,6 @@ def get_loadings(data, pcs):
 def create_scree_plot(pve):
     pc_array = np.array(range(len(pve)))+np.ones(len(pve))
     pve_array = np.array(pve)*100
-    print(pc_array.shape)
-    print(pve_array.shape)
     plt.scatter(pc_array, pve_array)
     plt.xlabel('PCs')
     plt.ylabel('PVE')

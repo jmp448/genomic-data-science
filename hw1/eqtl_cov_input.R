@@ -77,6 +77,20 @@ if(length(covariates_file_name)>0) {
 snpspos = read.table(snps_location_file_name, header = TRUE, stringsAsFactors = FALSE);
 genepos = read.table(gene_location_file_name, header = TRUE, stringsAsFactors = FALSE);
 
+# Filter out snps with MAF<0.01
+maf.list = vector('list', length(snps))
+for(sl in 1:length(snps)) {
+  slice = snps[[sl]];
+  maf.list[[sl]] = rowMeans(slice,na.rm=TRUE)/2;
+  maf.list[[sl]] = pmin(maf.list[[sl]],1-maf.list[[sl]]);
+}
+maf = unlist(maf.list)
+
+## Look at the distribution of MAF
+cat('SNPs before filtering:',nrow(snps))
+snps$RowReorder(maf>=0.01);
+cat('SNPs before filtering:',nrow(snps))
+
 me = Matrix_eQTL_main(
   snps = snps,
   gene = gene,
