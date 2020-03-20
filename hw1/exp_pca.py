@@ -6,7 +6,7 @@ exp_file = "data/exp.data.txt"
 
 
 def load_file(fname):
-    expmat = np.loadtxt(exp_file)
+    expmat = np.loadtxt(fname)
     return expmat
 
 
@@ -27,7 +27,7 @@ def create_scree_plot(pve):
     plt.scatter(np.array(range(len(pve)))+np.ones(len(pve), dtype=int), pve*100)
     plt.xlabel('PCs')
     plt.ylabel('PVE')
-    plt.savefig('scree.png')
+    plt.savefig('./plots/scree.png')
 
 
 def main():
