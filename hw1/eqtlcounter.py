@@ -83,8 +83,9 @@ def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05, tied_rankings=Fal
 
 def bh_all_combos():
     snps, genes, pvals = get_qtl_data("cov1")
-    count_bh_significant_snps(pvals, "qtlcount/all_combos.txt", 3660383)
-
+    nsnp = count_bh_significant_snps(pvals, "qtlcount/all_combos.txt", 3660383)
+    return nsnp
+    
 
 def bh_gene_level(cov):
     gene2count = get_SNPs_per_gene()
@@ -102,7 +103,8 @@ def bh_gene_level(cov):
     snps = [snps[u] for u in uniq]
 
     outfile="qtlcount/"+cov+".txt"
-    count_bh_significant_snps(pvals, outfile, 765)
+    nsnp =  count_bh_significant_snps(pvals, outfile, 765)
+    return nsnp
 
 
 def plot_egenes_vs_covs(covs, egenes):
