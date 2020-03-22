@@ -18,7 +18,7 @@ assert(len(all_snps) == len(snplocs))
 assert(len(maf_snps) == 339919)
 
 _, inds, _ = np.intersect1d(all_snps, maf_snps, return_indices=True)
-snplocs = np.take(snplocs, inds)
+snplocs = np.take(snplocs, sorted(inds))
 
 # load gene file
 genefile = "/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/data/chr10genelocs.txt"
