@@ -106,7 +106,7 @@ def bh_gene_level(cov):
 
 
 def plot_egenes_vs_covs(covs, egenes):
-    plt.scatter(pc_array, pve_array)
+    plt.scatter(covs, egenes)
     plt.xlabel('PCs Regressed Out')
     plt.ylabel('Number of eGenes')
     plt.savefig('./plots/egenes.png')
