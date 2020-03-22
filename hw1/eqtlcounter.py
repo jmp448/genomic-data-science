@@ -83,7 +83,7 @@ def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05, tied_rankings=Fal
 
 def bh_all_combos():
     snps, genes, pvals = get_qtl_data("cov1")
-    count_bh_significant_snps(pvals, "qtlcount/all_combos.txt", 3663910)
+    count_bh_significant_snps(pvals, "qtlcount/all_combos.txt", 3660383)
 
 
 def bh_gene_level(cov):
@@ -106,7 +106,10 @@ def bh_gene_level(cov):
 
 
 def plot_egenes_vs_covs(covs, egenes):
-    plt.plot(covs, egenes)
+    plt.scatter(pc_array, pve_array)
+    plt.xlabel('PCs Regressed Out')
+    plt.ylabel('Number of eGenes')
+    plt.savefig('./plots/egenes.png')
 
 
 def main():
