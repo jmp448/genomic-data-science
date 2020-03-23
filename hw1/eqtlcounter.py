@@ -38,7 +38,7 @@ def get_SNPs_per_gene():
     f.close()
 
     # get list of snp counts per gene
-    qtlfile="/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/snpcounts.chr10.txt"
+    qtlfile="/home-2/jpopp4@jhu.edu/work/josh/genomic-data-science/hw1/snpcounts.chr10.maffiltered.txt"
     snp_counts = np.array(np.loadtxt(qtlfile), dtype=int)
 
     gene2snpcount = dict(zip(genes, snp_counts))
@@ -85,7 +85,7 @@ def bh_all_combos():
     snps, genes, pvals = get_qtl_data("cov1")
     nsnp = count_bh_significant_snps(pvals, "qtlcount/all_combos.txt", 3660383)
     return nsnp
-    
+
 
 def bh_gene_level(cov):
     gene2count = get_SNPs_per_gene()
