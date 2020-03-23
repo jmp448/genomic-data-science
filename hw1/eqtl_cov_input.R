@@ -89,7 +89,7 @@ maf = unlist(maf.list)
 ## Look at the distribution of MAF
 cat('SNPs before filtering:',nrow(snps))
 snps$RowReorder(maf>=0.01);
-cat('SNPs before filtering:',nrow(snps))
+cat('SNPs after filtering:',nrow(snps))
 
 me = Matrix_eQTL_main(
   snps = snps,
@@ -113,7 +113,6 @@ unlink(output_file_name_tra);
 #unlink(output_file_name_cis);
 
 ## Results:
-
 cat('Analysis done in: ', me$time.in.sec, ' seconds', '\n');
 cat('Detected local eQTLs:', '\n');
 show(me$cis$eqtls)
