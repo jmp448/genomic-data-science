@@ -65,7 +65,7 @@ def count_bh_significant_snps(pvals, outfile, ntest, fdr=0.05, tied_rankings=Fal
                 ranks[i] = ranks[i-1]+increment
                 increment = 1
     else:
-        ranks = range(len(pvals))
+        ranks = range(1, len(pvals)+1)
     bh = [(r/ntest)*fdr for r in ranks]
     assert(len(pvals) == len(bh))
     fout = open(outfile, "w+")
