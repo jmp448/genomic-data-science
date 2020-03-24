@@ -8,7 +8,7 @@ snplocs = np.array(snplocs)
 # select from this array only the snps that passed the MAF threshold
 maf_file = open("snps.passed", "r")
 fl = maf_file.readlines()
-maf_snps = [f.strip() for f in fl[1:]]
+maf_snps = [f.strip() for f in fl]
 
 allsnp_file = open(snpfile, "r")
 fl = allsnp_file.readlines()
