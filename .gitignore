@@ -3,11 +3,4 @@ hw1/processed/*
 .Rproj.user
 hw1/trouble*
 hw1/matrixeqtl/*
-hw1/loadings_1_30.txt
 hw1/data/*
-hw1/maf.snps
-hw1/snpcounts.chr10.maffiltered.txt
-hw1/expressionPCs_1_30.txt
-hw1/snpcounts.chr10.txt
-hw1/slurm_output/*
-hw1/snps.passed
