@@ -11,4 +11,4 @@ find.closest <- function(height, bg) {
 
 closest.snps <- sapply(X=height.mafs, FUN=find.closest, bg=bg.mafs)
 
-write.table(bg.snps[closest.snps,], "matched.snps.txt", quote=FALSE)
+write.table(bg.snps[closest.snps,], "../data/matched.snps.txt", quote=FALSE, sep="\t")
