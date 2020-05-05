@@ -24,7 +24,7 @@ gene_location_file_name = "../data/genes.txt";
 covariates_file_name = "../data/covariates.txt";
 
 # Output file name
-output_file_name_cis = tempfile();
+output_file_name_cis = "../data/cisqtl.matched.txt";
 output_file_name_tra = "../data/transqtl.matched.txt";
 
 # Only associations significant at this level will be saved
@@ -91,9 +91,6 @@ cisDist = cisDist,
 pvalue.hist = "qqplot",
 min.pv.by.genesnp = FALSE,
 noFDRsaveMemory = TRUE);
-
-# unlink(output_file_name_tra);
-unlink(output_file_name_cis);
 
 ## Results:
 
