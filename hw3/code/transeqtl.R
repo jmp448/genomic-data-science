@@ -12,8 +12,8 @@ library(MatrixEQTL)
 useModel = modelLINEAR; # modelANOVA, modelLINEAR, or modelLINEAR_CROSS
 
 # Genotype file name
-SNP_file_name = "../data/height.snps.txt";
-snps_location_file_name = "../data/height.snps.locs.txt";
+SNP_file_name = "../data/matched.snps.txt";
+snps_location_file_name = "../data/matched.snps.locs.txt";
 
 # Gene expression file name
 expression_file_name = "../data/expression.txt";
@@ -25,10 +25,10 @@ covariates_file_name = "../data/covariates.txt";
 
 # Output file name
 output_file_name_cis = tempfile();
-output_file_name_tra = "../data/transqtl.output.txt";
+output_file_name_tra = "../data/transqtl.matched.txt";
 
 # Only associations significant at this level will be saved
-pvOutputThreshold_cis = 0;
+pvOutputThreshold_cis = 1;
 pvOutputThreshold_tra = 1;
 
 # Error covariance matrix
@@ -92,7 +92,7 @@ pvalue.hist = "qqplot",
 min.pv.by.genesnp = FALSE,
 noFDRsaveMemory = TRUE);
 
-unlink(output_file_name_tra);
+# unlink(output_file_name_tra);
 unlink(output_file_name_cis);
 
 ## Results:
@@ -105,4 +105,4 @@ show(me$trans$eqtls)
 
 ## Plot the Q-Q plot of local and distant p-values
 
-saveRDS(me, "../data/matrixqtl.rds")
+saveRDS(me, "../data/matrixqtl.matched.rds")
